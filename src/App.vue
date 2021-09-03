@@ -6,7 +6,6 @@
 
 <script>
 import Demo from './components/Demo.vue'
-import '@popperjs/core'
 
 export default {
   name: 'App',

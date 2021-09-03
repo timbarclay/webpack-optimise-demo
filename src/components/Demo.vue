@@ -3,7 +3,7 @@
     <div>
       <p>My birthday: {{ birthdayStr }}</p>
 
-      <p>Years I've been around: <span v-for="year in years" :key="year" class="year"> {{ year }} </span></p>
+      <p>Years I've been around: <span v-for="year in years" :key="year" class="year" :class="{ 'is-leap': isLeapYear(year) }"> {{ year }} </span></p>
 
       <p>Leap years I've experienced: <span v-for="year in leapYears" :key="year" class="leap-year"> {{ year }} </span></p>
     </div>
@@ -43,17 +43,6 @@ export default {
     isLeapYear (year) {
       return moment(year + '', 'YYYY').dayOfYear(366).year() === year
     }
-  },
-
-  mounted () {
-    const self = this
-    $('.year').each(function() {
-      const $el = $(this)
-      const year = +$el.text()
-      if (self.isLeapYear(year)) {
-        $el.addClass('is-leap')
-      }
-    })
   }
 }
 </script>
