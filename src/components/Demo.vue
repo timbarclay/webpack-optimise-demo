@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import _ from 'lodash'
+import _range from 'lodash/range'
 import moment from 'moment'
 
 const myBirthday = '1984-12-23'
@@ -31,11 +31,11 @@ export default {
     },
 
     years () {
-      return _.range(this.birth.year(), this.now.year())
+      return _range(this.birth.year(), this.now.year())
     },
 
     leapYears () {
-      return _.filter(this.years, this.isLeapYear)
+      return this.years.filter(this.isLeapYear)
     }
   },
 
